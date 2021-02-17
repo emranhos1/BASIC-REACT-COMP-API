@@ -1,0 +1,106 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eh.exam.dev.mapper.UserMapper"><!--
+================================================================================
+@author    Md. Emran Hossain<emranhos1@gmail.com>
+@version   1.0.00 EH
+@since     1.0.00 EH
+================================================================================
+--> <resultMap id="UserMap" type="User">
+        <result property="amendDate"          column="t_upd_date"/>
+        <result property="amendUser"          column="t_upd_user"/>
+        <result property="entryDate"          column="t_entry_date"/>
+        <result property="entryUser"          column="t_entry_user"/>
+
+        <result property="code"               column="t_user_code"/>
+        <result property="firstName"          column="t_first_name"/>
+        <result property="lastName"           column="t_last_name"/>
+        <result property="email"              column="t_email"/>
+        <result property="phoneNo"            column="t_phone_no"/>
+        <result property="genderCode"         column="t_gender_code"/>
+    </resultMap>
+
+    <sql id="UserFind">
+        ${alias}.t_upd_date,
+        ${alias}.t_upd_user,
+        ${alias}.t_entry_date,
+        ${alias}.t_entry_user,
+
+        ${alias}.t_user_code,
+        ${alias}.t_first_name,
+        ${alias}.t_last_name,
+        ${alias}.t_email,
+        ${alias}.t_phone_no,
+        ${alias}.t_gender_code
+    </sql>
+
+    <select id="countAll" resultType="Long">
+        SELECT
+            COUNT(*)
+        FROM
+            user u
+    </select>
+
+    <select id="selectAll" resultMap="UserMap">
+        SELECT
+            <include refid="UserFind"><property name="alias" value="u"/></include>
+        FROM
+            user u
+    </select>
+
+    <select id="searchByOffset" resultMap="UserMap" parameterType="java.util.Map">
+        SELECT
+            <include refid="UserFind"><property name="alias" value="u"/></include>
+        FROM
+            user u
+        WHERE
+            1 = 1
+    </select>
+
+    <select id="selectByCode" resultMap="UserMap" parameterType="String">
+        SELECT
+            <include refid="UserFind"><property name="alias" value="u"/></include>
+        FROM
+            user u
+        WHERE
+            u.t_user_code =#{code, jdbcType=VARCHAR}
+    </select>
+
+    <insert id="insert" parameterType="User">
+        INSERT INTO user (
+            t_entry_date,
+            t_entry_user,
+
+            t_first_name,
+            t_last_name,
+            t_email,
+            t_phone_no,
+            t_gender_code
+        ) VALUES (
+            #{entryDate,  jdbcType=DATE   },
+            #{entryUser,  jdbcType=VARCHAR},
+
+            #{firstName,  jdbcType=VARCHAR},
+            #{lastName,   jdbcType=VARCHAR},
+            #{email,      jdbcType=VARCHAR},
+            #{phoneNo,    jdbcType=VARCHAR},
+            #{genderCode, jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <update id="update" parameterType="User">
+        UPDATE user
+        <set>
+            <if test="amendDate !=null">  t_upd_date    = #{amendDate,  jdbcType=DATE   },</if>
+            <if test="amendUser !=null">  t_upd_user    = #{amendUser,  jdbcType=VARCHAR},</if>
+            <if test="entryDate !=null">  t_entry_date  = #{entryDate,  jdbcType=DATE   },</if>
+            <if test="entryUser !=null">  t_entry_user  = #{entryUser,  jdbcType=VARCHAR},</if>
+
+            <if test="firstName !=null">  t_first_name  = #{firstName,  jdbcType=VARCHAR},</if>
+            <if test="lastName !=null">   t_last_name   = #{lastName,   jdbcType=VARCHAR},</if>
+            <if test="email !=null">      t_email       = #{email,      jdbcType=VARCHAR},</if>
+            <if test="phoneNo !=null">    t_phone_no    = #{phoneNo,    jdbcType=VARCHAR},</if>
+            <if test="genderCode !=null"> t_gender_code = #{genderCode, jdbcType=VARCHAR} </if>
+        </set>
+        WHERE t_user_code = #{code, jdbcType=VARCHAR}
+    </update>
+</mapper>

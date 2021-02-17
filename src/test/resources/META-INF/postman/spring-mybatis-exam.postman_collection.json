@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "f439588e-fda9-4ca2-820f-5e171475070d",
+		"name": "spring-mybatis-exam",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/rest/api",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "/v.1.0/rest/user/all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9191/v.1.0/rest/user/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9191",
+									"path": [
+										"v.1.0",
+										"rest",
+										"user",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/v.1.0/rest/user/{code}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9191/v.1.0/rest/user/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9191",
+									"path": [
+										"v.1.0",
+										"rest",
+										"user",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/v.1.0/rest/user/add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\":\"Md. Emran\",\r\n    \"lastName\":\"Hossain\",\r\n    \"email\":\"emranhos3@gmail.com\",\r\n    \"phoneNo\":\"01670932273\",\r\n    \"genderCode\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9191/v.1.0/rest/user/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9191",
+									"path": [
+										"v.1.0",
+										"rest",
+										"user",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/v.1.0/rest/user/update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"code\":\"4\",\r\n    \"firstName\":\"Md. Emran\",\r\n    \"lastName\":\"Hossain\",\r\n    \"email\":\"emranhos4@gmail.com\",\r\n    \"phoneNo\":\"01670932273\",\r\n    \"genderCode\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9191/v.1.0/rest/user/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9191",
+									"path": [
+										"v.1.0",
+										"rest",
+										"user",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "gender",
+					"item": [
+						{
+							"name": "/v.1.0/rest/gender/all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9191/v.1.0/rest/gender/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9191",
+									"path": [
+										"v.1.0",
+										"rest",
+										"gender",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/v.1.0/rest/gender/{code}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9191/v.1.0/rest/gender/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9191",
+									"path": [
+										"v.1.0",
+										"rest",
+										"gender",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/v.1.0/rest/gender/add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nameGlobal\":\"Other\",\r\n    \"nameNative\":\"Other\",\r\n    \"shortName\":\"O\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9191/v.1.0/rest/gender/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9191",
+									"path": [
+										"v.1.0",
+										"rest",
+										"gender",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/v.1.0/rest/gender/update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"code\":\"3\",\r\n    \"nameGlobal\":\"Other\",\r\n    \"nameNative\":\"OTHER\",\r\n    \"shortName\":\"O\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9191/v.1.0/rest/gender/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9191",
+									"path": [
+										"v.1.0",
+										"rest",
+										"gender",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "graphql",
+			"item": []
+		}
+	]
+}

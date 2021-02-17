@@ -1,0 +1,21 @@
+scalar Date
+scalar Timestamp
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+type Query {
+    searchCheck(name: String!): String!
+}
+
+type Mutation {
+    insertCheck(name: String!): String!
+}
+
+interface Tracking {
+    amendDate: Date
+    amendUser: String
+    entryDate: Date
+    entryUser: String
+}

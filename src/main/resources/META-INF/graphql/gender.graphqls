@@ -1,0 +1,22 @@
+extend type Query {
+    selectAllGender: [Gender]
+    selectGenderByCode(id: Int!): Gender
+    countAllGender: Long
+    searchGenderPageCount(size: Int!): Long
+    searchGenderByOffset(page: Int!, size: Int!): [Gender]
+}
+
+type Gender implements Tracking {
+    amendDate: Date
+    amendUser: String
+    entryDate: Date
+    entryUser: String
+
+    code: String
+    nameNative: String
+    nameGlobal: String
+    shortName: String
+
+    #amendUserDetails: T01009
+    #entryUserDetails: T01009
+}

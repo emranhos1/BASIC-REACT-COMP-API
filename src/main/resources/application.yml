@@ -1,0 +1,68 @@
+#######################################################
+## @author   Md. Emran Hossain <emranhos1@gmail.com> ##
+## @version  1.0.00 EH                               ##
+## @since    1.0.00 EH                               ##
+#######################################################
+#######################################################
+## application snake yaml properties                 ##
+#######################################################
+exam:
+  evn:
+    user:
+      home: ${user.home}
+      mode: dev
+      name: ${user.name}
+      temp: ${java.io.tmpdir}
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring-mybatis-exam?autoReconnect=true&useSSL=false
+    username: root
+    password: medisys
+    unique-name: spring-mybatis-exam
+server:
+  port: 9191
+  servlet:
+    contextPath: /v.1.0/rest
+  tomcat:
+    basedir: ${user.home}/.eh/example/var/exam
+spring:
+#  thymeleaf:
+#    mode: HTML
+#    prefix: classpath:/META-INF/thymeleaf/
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: ${exam.datasource.url}
+    username: ${exam.datasource.username}
+    password: ${exam.datasource.password}
+#    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      pool-name: ${exam.datasource.unique-name}
+      connection-test-query: SELECT 1 FROM dual
+      auto-commit: false
+logging:
+  level:
+    org.springframework: WARN
+    org.rufaida: INFO
+---
+spring:
+  profiles: dev
+logging:
+  level:
+    org.springframework: WARN
+    org.rufaida: INFO
+---
+spring:
+  profiles: uat
+logging:
+  level:
+    org.springframework: WARN
+    org.rufaida: WARN
+---
+spring:
+  profiles: pro
+logging:
+  level:
+    org.springframework: WARN
+    org.rufaida: WARN
+################################################################################
+# built on: Tue, Feb 02 2021, 12:34 +0000                by: emranhos1@gmail.com
+################################################################################
